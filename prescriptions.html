@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Services - LiRx</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .page-header {
+            background-color: var(--color-primary-dark);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .services-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            padding: 4rem 0;
+        }
+
+        @media (max-width: 900px) {
+            .services-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .transfer-form-box {
+            background-color: white;
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--color-border);
+        }
+
+        /* File Upload Box */
+        .upload-box {
+            border: 2px dashed var(--color-primary-light);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            background-color: var(--color-surface-hover);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            margin-bottom: 1.5rem;
+        }
+
+        .upload-box:hover {
+            background-color: #e2f2ef;
+            border-color: var(--color-primary);
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            color: var(--color-primary-light);
+            margin-bottom: 1rem;
+        }
+
+        .info-card {
+            background-color: var(--color-surface);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            margin-bottom: 2rem;
+        }
+
+        .info-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="global-header">
+        <div class="header-main">
+            <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
+                <a href="index.html" class="brand-logo">
+                    <div class="logo-mark">L<span class="sparkle-i">i</span>Rx</div>
+                    <div class="logo-text">Lindenwood<br>Rx Center, Inc.</div>
+                </a>
+                <nav class="main-nav" style="display:flex; gap:2rem;">
+                    <a href="prescriptions.html" class="nav-link active">Prescriptions</a>
+                    <a href="shop.html" class="nav-link">Shop Products</a>
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1 style="font-size:3rem; margin-bottom:1rem; color:white;">Seamless Prescription Services</h1>
+            <p style="font-size:1.125rem; max-width:600px; margin:0 auto; opacity:0.9;">Transfer your prescriptions to
+                LiRx in minutes. We handle the paperwork, phone calls, and offer free home delivery.</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="services-layout">
+            <!-- Transfer Form Column -->
+            <div class="animate-on-scroll">
+                <div class="transfer-form-box">
+                    <h2 style="margin-bottom: 2rem; color:var(--color-primary-dark);">Transfer Prescription Form</h2>
+                    <form
+                        onsubmit="event.preventDefault(); alert('We have received your transfer request! Our team is processing it now.'); window.location.href='dashboard.html';">
+
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                            <div class="input-group">
+                                <label class="input-label">First Name</label>
+                                <input type="text" class="input-field" required>
+                            </div>
+                            <div class="input-group">
+                                <label class="input-label">Last Name</label>
+                                <input type="text" class="input-field" required>
+                            </div>
+                        </div>
+
+                        <div class="input-group">
+                            <label class="input-label">Date of Birth</label>
+                            <input type="date" class="input-field" required>
+                        </div>
+
+                        <hr style="margin:2rem 0; border:none; border-top:1px solid var(--color-border);">
+
+                        <div class="input-group">
+                            <label class="input-label">Current Pharmacy Name or Phone Number</label>
+                            <input type="text" class="input-field" placeholder="e.g. CVS on 5th Ave or 555-0192"
+                                required>
+                        </div>
+
+                        <div style="display:grid; grid-template-columns:2fr 1fr; gap:1.5rem;">
+                            <div class="input-group">
+                                <label class="input-label">Drug Name (Optional)</label>
+                                <input type="text" class="input-field" placeholder="Lisinopril 10mg">
+                            </div>
+                            <div class="input-group">
+                                <label class="input-label">RX # (Optional)</label>
+                                <input type="text" class="input-field" placeholder="#1234567">
+                            </div>
+                        </div>
+
+                        <!-- Label Photo Upload -->
+                        <div class="input-group" style="margin-top:2rem;">
+                            <label class="input-label">Or upload a photo of your current Rx Label</label>
+                            <div class="upload-box" onclick="document.getElementById('label-upload').click()">
+                                <i class="ph ph-camera upload-icon"></i>
+                                <h4>Click to snap a picture or upload</h4>
+                                <p style="font-size:0.875rem; color:var(--color-text-light);">Supports JPG, PNG (Max
+                                    5MB)</p>
+                                <input type="file" id="label-upload" style="display:none;" accept="image/*">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary"
+                            style="width:100%; font-size:1.125rem; padding:1rem;">Submit Transfer Request</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Info Column -->
+            <aside class="animate-on-scroll" style="animation-delay: 0.1s;">
+                <div class="info-card">
+                    <h3><i class="ph-fill ph-truck"></i> Free Home Delivery</h3>
+                    <p style="font-size:0.875rem; color:var(--color-text-main);">We offer free next-day delivery on all
+                        prescription orders within the Brooklyn metro area. Track your delivery live from your
+                        Dashboard.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class="ph-fill ph-piggy-bank"></i> Auto-Savings Program</h3>
+                    <p style="font-size:0.875rem; color:var(--color-text-main);">Our system automatically scans
+                        thousands of manufacturer coupons and discount cards to ensure you always get the absolute
+                        lowest price at the register.</p>
+                </div>
+
+                <div class="info-card" style="background-color: var(--color-primary); color:white;">
+                    <h3 style="color:white;"><i class="ph-fill ph-info"></i> Need Help?</h3>
+                    <p style="font-size:0.875rem; color:rgba(255,255,255,0.9); margin-bottom:1rem;">Not sure how to read
+                        your current prescription label?</p>
+                    <button class="btn btn-secondary"
+                        style="background:white; color:var(--color-primary); width:100%;">View Label Guide</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
