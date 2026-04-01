@@ -2,9 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Varela_Round } from 'next/font/google';
-
-const varela = Varela_Round({ subsets: ['latin'], weight: '400' });
+import Image from 'next/image';
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,24 +29,14 @@ export default function Header() {
             <div className="py-4">
                 <div className="w-full max-w-[1280px] mx-auto px-4 flex flex-wrap md:flex-row justify-between items-center">
                     <Link href="/" className="flex items-center gap-2 md:gap-4 text-white hover:scale-[1.02] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] transition-transform duration-150">
-                        <div className={`${varela.className} font-normal text-[2.25rem] md:text-[3.25rem] tracking-tight relative flex items-center pr-1 text-white`}>
-                            L
-                            <div className="relative inline-flex flex-col items-center justify-end w-[0.4em] mx-[0.04em] h-[1em]">
-                                {/* Dotless 'i' stem custom drawn to perfectly match rounded caps */}
-                                <span className="absolute bottom-[0.16em] w-[0.13em] h-[0.52em] bg-white rounded-full"></span>
-                                {/* The 4-cluster astroid sparkles mathematically positioned */}
-                                <svg className="absolute top-[0.02em] left-1/2 -translate-x-1/2 w-[0.7em] h-[0.7em] text-white" viewBox="0 0 100 100" fill="currentColor">
-                                    {/* Top biggest star */}
-                                    <path d="M 50,0 C 50,15 55,20 70,20 C 55,20 50,25 50,40 C 50,25 45,20 30,20 C 45,20 50,15 50,0 Z" />
-                                    {/* Left smaller star */}
-                                    <path d="M 28,25 C 28,33 32,37 40,37 C 32,37 28,41 28,49 C 28,41 24,37 16,37 C 24,37 28,33 28,25 Z" className="animate-pulse" />
-                                    {/* Right smaller star */}
-                                    <path d="M 72,25 C 72,33 76,37 84,37 C 76,37 72,41 72,49 C 72,41 68,37 60,37 C 68,37 72,33 72,25 Z" className="animate-pulse" style={{ animationDelay: '0.5s' }} />
-                                    {/* Bottom downward star */}
-                                    <path d="M 50,45 C 50,53 54,57 62,57 C 54,57 50,61 50,69 C 50,61 46,57 38,57 C 46,57 50,53 50,45 Z" className="animate-pulse" style={{ animationDelay: '1s' }} />
-                                </svg>
-                            </div>
-                            Rx
+                        <div className="relative w-[120px] md:w-[150px] h-[50px] md:h-[65px] flex-shrink-0">
+                            <Image
+                                src="/images/logo.png"
+                                alt="LiRx Logo"
+                                fill
+                                className="object-contain object-left"
+                                priority
+                            />
                         </div>
                         <div className="font-sans text-sm md:text-base font-semibold leading-[1.2] border-l md:border-l-[3px] md:border-white/40 pl-3 md:pl-5 text-white/90">
                             Lindenwood<br className="hidden md:block" />Rx Center, Inc.
