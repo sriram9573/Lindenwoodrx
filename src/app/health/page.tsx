@@ -4,12 +4,12 @@ import Image from 'next/image';
 
 export default function Health() {
     const articles = [
-        { title: 'Understanding Your Blood Pressure Medications', category: 'Medications', readTime: '5 min read', img: 'https://images.unsplash.com/photo-1584308666744-24d5e1b213b3?auto=format&fit=crop&q=80&w=600' },
-        { title: 'Top 10 Immune-Boosting Foods for Winter', category: 'Nutrition', readTime: '4 min read', img: 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&q=80&w=600' },
-        { title: 'Managing Stress: A Pharmacist\'s Perspective', category: 'Mental Health', readTime: '6 min read', img: 'https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&q=80&w=600' },
-        { title: 'The Importance of Vitamin D Supplements', category: 'Supplements', readTime: '5 min read', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=600' },
-        { title: 'A Guide to Safe Over-the-Counter Pain Relief', category: 'Medications', readTime: '7 min read', img: 'https://images.unsplash.com/photo-1628771065518-0d82f1938462?auto=format&fit=crop&q=80&w=600' },
-        { title: 'How to Build a Sustainable Workout Routine', category: 'Fitness', readTime: '5 min read', img: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=600' }
+        { title: 'Understanding Your Blood Pressure Medications', category: 'Medications', readTime: '5 min read', img: '/images/blog_bp.png' },
+        { title: 'Top 10 Immune-Boosting Foods for Winter', category: 'Nutrition', readTime: '4 min read', img: '/images/blog_nutrition.png' },
+        { title: 'Managing Stress: A Pharmacist\'s Perspective', category: 'Mental Health', readTime: '6 min read', img: '/images/blog_stress.png' },
+        { title: 'The Importance of Vitamin D Supplements', category: 'Supplements', readTime: '5 min read', img: '/images/blog_vitamins.png' },
+        { title: 'A Guide to Safe Over-the-Counter Pain Relief', category: 'Medications', readTime: '7 min read', img: '/images/blog_painrelief.png' },
+        { title: 'How to Build a Sustainable Workout Routine', category: 'Fitness', readTime: '5 min read', img: '/images/blog_fitness.png' }
     ];
 
     return (
