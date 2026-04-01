@@ -65,17 +65,6 @@ export default function Header() {
                             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[var(--color-brand-glow)] transition-all duration-150 group-hover:w-full"></span>
                         </Link>
                     </nav>
-
-                    <div className={`w-full md:w-auto mt-4 md:mt-0 flex items-center bg-white/10 rounded-full px-4 py-1 border border-white/20 transition-colors focus-within:bg-white group`}>
-                        <input
-                            type="text"
-                            placeholder="Search LiRx..."
-                            className="bg-transparent border-none outline-none text-white w-full md:w-[150px] transition-all duration-300 focus:text-[var(--color-text-main)] focus:w-full md:focus:w-[200px] placeholder:text-white/60 focus:placeholder-[var(--color-text-light)]"
-                        />
-                        <button className="bg-[var(--color-brand-glow)] text-[var(--color-primary-dark)] w-8 h-8 rounded-full flex items-center justify-center transition-transform hover:scale-105 group-focus-within:text-[var(--color-surface)]">
-                            <i className="ph ph-magnifying-glass"></i>
-                        </button>
-                    </div>
                 </div>
             </div>
         </header>
