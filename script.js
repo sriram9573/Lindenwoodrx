@@ -70,11 +70,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Mobile shop filter toggle logic
   const filterToggle = document.querySelector('.mobile-filter-toggle');
+  const applyFiltersBtn = document.querySelector('.apply-filters-btn');
   const sidebar = document.querySelector('.sidebar');
   if (filterToggle && sidebar) {
     filterToggle.addEventListener('click', () => {
       sidebar.classList.toggle('active');
     });
+
+    if (applyFiltersBtn) {
+      applyFiltersBtn.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        // In a real app, this is where you'd trigger the product array filtering function
+      });
+    }
   }
 
   // Dynamic Price Slider
