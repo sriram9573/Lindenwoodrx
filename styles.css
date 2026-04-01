@@ -322,6 +322,8 @@ button {
 
 .brand-logo:hover {
   transform: scale(1.02);
+  color: var(--color-text-inverse);
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
 }
 
 .logo-mark {
