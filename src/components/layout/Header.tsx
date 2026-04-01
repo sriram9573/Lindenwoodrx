@@ -27,18 +27,11 @@ export default function Header() {
 
             <div className="py-4">
                 <div className="w-full max-w-[1280px] mx-auto px-4 flex flex-wrap md:flex-row justify-between items-center">
-                    <Link href="/" className="flex items-center gap-2 md:gap-4 text-white hover:scale-[1.02] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] transition-transform duration-150 group">
-                        <div className="relative flex items-center">
-                            {/* Massive Logo with forced inline styles */}
-                            <div className="font-heading font-black leading-none tracking-tighter" style={{ fontSize: 'min(15vw, 6rem)' }}>
-                                L<span className="relative inline-block">
-                                    i
-                                    <span className="absolute -top-[0.2em] left-1/2 -translate-x-1/2 text-[0.4em] opacity-100 animate-sparkle-1">✦</span>
-                                    <span className="absolute -top-[0.4em] left-[20%] text-[0.25em] opacity-80 animate-sparkle-2">✦</span>
-                                </span>Rx
-                            </div>
+                    <Link href="/" className="flex items-center gap-2 md:gap-4 text-white hover:scale-[1.02] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] transition-transform duration-150">
+                        <div className="logo-mark">
+                            L<span className="sparkle-i">i</span>Rx
                         </div>
-                        <div className="font-sans font-bold leading-[1.1] border-l-[3px] border-white/50 pl-4 md:pl-6 text-white" style={{ fontSize: 'min(4vw, 1.4rem)' }}>
+                        <div className="font-sans text-sm md:text-base font-semibold leading-[1.2] border-l md:border-l-[3px] md:border-white/40 pl-3 md:pl-5 text-white/90">
                             Lindenwood<br className="hidden md:block" />Rx Center, Inc.
                         </div>
                     </Link>
