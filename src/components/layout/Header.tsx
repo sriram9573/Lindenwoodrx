@@ -7,7 +7,7 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <header className="bg-[var(--color-primary)] text-white sticky md:relative top-0 z-[100] shadow-md">
+        <header className="bg-[#2ba694] text-white sticky md:relative top-0 z-[100] shadow-md">
             <div className="bg-[#3b4241] py-2 text-sm">
                 <div className="w-full max-w-[1280px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0 text-center">
                     <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-6 opacity-90">
@@ -28,10 +28,10 @@ export default function Header() {
             <div className="py-4">
                 <div className="w-full max-w-[1280px] mx-auto px-4 flex flex-wrap md:flex-row justify-between items-center">
                     <Link href="/" className="flex items-center gap-2 md:gap-4 text-white hover:scale-[1.02] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] transition-transform duration-150">
-                        <div className="font-heading text-[2.75rem] md:text-[4rem] font-extrabold tracking-tight leading-none">
+                        <div className="font-heading text-[2.75rem] md:text-[2.5rem] font-extrabold tracking-tight leading-none text-white">
                             LiRx
                         </div>
-                        <div className="font-sans text-sm md:text-base font-semibold leading-[1.2] border-l md:border-l-[3px] md:border-white/40 pl-3 md:pl-5 text-white/90">
+                        <div className="font-sans text-sm md:text-lg font-bold leading-[1.1] border-l md:border-l-[3px] border-white/50 pl-4 md:pl-6 text-white">
                             Lindenwood<br className="hidden md:block" />Rx Center, Inc.
                         </div>
                     </Link>

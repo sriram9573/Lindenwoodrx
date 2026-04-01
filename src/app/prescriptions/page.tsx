@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
 export default function Prescriptions() {
@@ -19,7 +18,7 @@ export default function Prescriptions() {
                 <div className="w-full max-w-[1280px] mx-auto px-4">
                     <h1 className="text-4xl md:text-5xl font-bold font-heading mb-4 tracking-tight">Prescription Transfers</h1>
                     <p className="text-lg opacity-90 max-w-[600px] mx-auto">
-                        Switching pharmacies doesn't have to be a headache. Fill out the form below and let us handle all the paperwork for you.
+                        Switching pharmacies doesn&apos;t have to be a headache. Fill out the form below and let us handle all the paperwork for you.
                     </p>
                 </div>
             </div>
@@ -34,7 +33,7 @@ export default function Prescriptions() {
                             <div className="text-[var(--color-primary)] text-3xl"><i className="ph-fill ph-check-circle"></i></div>
                             <div>
                                 <strong className="block text-[var(--color-text-main)] mb-1">Zero Hassle</strong>
-                                <span className="text-sm text-[var(--color-text-light)]">We call your old pharmacy and your doctor. You don't have to do a thing.</span>
+                                <span className="text-sm text-[var(--color-text-light)]">We call your old pharmacy and your doctor. You don&apos;t have to do a thing.</span>
                             </div>
                         </li>
                         <li className="flex gap-4 items-start">

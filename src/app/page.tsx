@@ -82,10 +82,10 @@ export default function Home() {
         <div className="bg-[var(--color-surface)] rounded-[2rem] shadow-lg p-8 md:p-12 flex flex-col lg:flex-row gap-12 items-center border border-[var(--color-border)]">
           <div className="flex-1 text-center lg:text-left">
             <h2 className="text-3xl md:text-[2.5rem] font-bold font-heading text-[var(--color-primary-dark)] mb-6 leading-tight">
-              Transfer to LiRx — It's Easy.
+              Transfer to LiRx — It&apos;s Easy.
             </h2>
             <p className="text-[var(--color-text-light)] mb-10 text-lg leading-relaxed">
-              Fill out this quick form, and we'll handle the rest. We will contact your old pharmacy and take care of everything behind the scenes.
+              Fill out this quick form, and we&apos;ll handle the rest. We will contact your old pharmacy and take care of everything behind the scenes.
             </p>
             <ul className="flex flex-col gap-5 text-[var(--color-text-main)] text-left max-w-sm mx-auto lg:mx-0">
               <li className="flex items-center gap-4"><i className="ph-fill ph-check-circle text-[var(--color-success)] text-2xl"></i> <span className="font-medium text-lg">No phone calls required</span></li>
