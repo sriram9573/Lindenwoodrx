@@ -43,17 +43,25 @@ export default function Header() {
                         <i className="ph ph-list"></i>
                     </button>
 
-                    <nav className={`${isMobileMenuOpen ? 'flex animate-[fadeIn_0.3s_ease-in-out]' : 'hidden'} md:flex w-full md:w-auto flex-col md:flex-row items-center gap-4 md:gap-8 bg-[var(--color-primary-dark)] md:bg-transparent mt-4 md:mt-0 py-4 md:py-0 rounded-md md:rounded-none shadow-inner md:shadow-none`}>
-                        <Link href="/prescriptions" className="text-white/80 font-medium text-base relative py-2 hover:text-[var(--color-brand-glow)] transition-colors group">
+                    <nav className={`${isMobileMenuOpen ? 'flex animate-[fadeIn_0.3s_ease-in-out]' : 'hidden'} md:flex w-full lg:w-auto flex-col lg:flex-row items-center gap-4 lg:gap-8 bg-[var(--color-primary-dark)] md:bg-transparent mt-4 md:mt-0 py-4 md:py-0 rounded-md md:rounded-none shadow-inner md:shadow-none mx-auto lg:mx-0 lg:ml-auto`}>
+                        <Link href="/prescriptions" className="text-white/80 font-medium text-sm xl:text-base relative py-2 hover:text-[var(--color-brand-glow)] transition-colors group">
                             Prescriptions
                             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[var(--color-brand-glow)] transition-all duration-150 group-hover:w-full"></span>
                         </Link>
-                        <Link href="/shop" className="text-white/80 font-medium text-base relative py-2 hover:text-[var(--color-brand-glow)] transition-colors group">
+                        <Link href="/shop" className="text-white/80 font-medium text-sm xl:text-base relative py-2 hover:text-[var(--color-brand-glow)] transition-colors group">
                             Shop Products
                             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[var(--color-brand-glow)] transition-all duration-150 group-hover:w-full"></span>
                         </Link>
-                        <Link href="/health" className="text-white/80 font-medium text-base relative py-2 hover:text-[var(--color-brand-glow)] transition-colors group">
+                        <Link href="/health" className="text-white/80 font-medium text-sm xl:text-base relative py-2 hover:text-[var(--color-brand-glow)] transition-colors group">
                             Health & Wellness
+                            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[var(--color-brand-glow)] transition-all duration-150 group-hover:w-full"></span>
+                        </Link>
+                        <Link href="/about" className="text-white/80 font-medium text-sm xl:text-base relative py-2 hover:text-[var(--color-brand-glow)] transition-colors group">
+                            About Us
+                            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[var(--color-brand-glow)] transition-all duration-150 group-hover:w-full"></span>
+                        </Link>
+                        <Link href="/contact" className="text-white/80 font-medium text-sm xl:text-base relative py-2 hover:text-[var(--color-brand-glow)] transition-colors group">
+                            Contact Us
                             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[var(--color-brand-glow)] transition-all duration-150 group-hover:w-full"></span>
                         </Link>
                     </nav>

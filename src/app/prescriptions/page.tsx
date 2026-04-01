@@ -24,10 +24,10 @@ export default function Prescriptions() {
                 </div>
             </div>
 
-            <div className="w-full max-w-[1000px] mx-auto px-4 py-16 -mt-10 animate-fade-in relative z-10 flex flex-col md:flex-row gap-8 items-start">
+            <div className="w-full max-w-[1280px] mx-auto px-4 py-16 -mt-10 animate-fade-in relative z-10 flex flex-col lg:flex-row gap-8 items-start">
 
                 {/* Info Column */}
-                <div className="flex-1 bg-[var(--color-surface)] border border-[var(--color-border)] p-8 rounded-2xl shadow-md w-full">
+                <div className="lg:w-[35%] bg-[var(--color-surface)] border border-[var(--color-border)] p-8 rounded-2xl shadow-md w-full">
                     <h3 className="text-2xl font-bold font-heading text-[var(--color-primary-dark)] mb-6 border-b border-[var(--color-border)] pb-4">Why Transfer to LiRx?</h3>
                     <ul className="flex flex-col gap-6">
                         <li className="flex gap-4 items-start">
@@ -55,7 +55,7 @@ export default function Prescriptions() {
                 </div>
 
                 {/* Form Section */}
-                <div className="flex-1 bg-white p-8 rounded-2xl shadow-lg border-t-4 border-[var(--color-primary)] w-full w-full">
+                <div className="lg:w-[65%] bg-white p-8 rounded-2xl shadow-lg border-t-4 border-[var(--color-primary)] w-full">
                     <h2 className="text-2xl font-bold font-heading text-[var(--color-primary-dark)] mb-8 text-center">Start Your Transfer</h2>
                     <form onSubmit={handleTransfer} className="flex flex-col gap-6">
 
