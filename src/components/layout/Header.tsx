@@ -2,9 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Nunito } from 'next/font/google';
+import { Varela_Round } from 'next/font/google';
 
-const nunito = Nunito({ subsets: ['latin'], weight: ['700', '800'] });
+const varela = Varela_Round({ subsets: ['latin'], weight: '400' });
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -31,11 +31,11 @@ export default function Header() {
             <div className="py-4">
                 <div className="w-full max-w-[1280px] mx-auto px-4 flex flex-wrap md:flex-row justify-between items-center">
                     <Link href="/" className="flex items-center gap-2 md:gap-4 text-white hover:scale-[1.02] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] transition-transform duration-150">
-                        <div className={`${nunito.className} font-bold text-[2.75rem] md:text-[4rem] tracking-tight relative flex items-center pr-1`}>
+                        <div className={`${varela.className} font-normal text-[2.25rem] md:text-[3.25rem] tracking-tight relative flex items-center pr-1 text-white`}>
                             L
-                            <div className="relative inline-flex flex-col items-center justify-end w-[0.4em] mx-[0.06em] h-[1em]">
+                            <div className="relative inline-flex flex-col items-center justify-end w-[0.4em] mx-[0.04em] h-[1em]">
                                 {/* Dotless 'i' stem custom drawn to perfectly match rounded caps */}
-                                <span className="absolute bottom-[0.17em] w-[0.18em] h-[0.51em] bg-white rounded-full"></span>
+                                <span className="absolute bottom-[0.16em] w-[0.13em] h-[0.52em] bg-white rounded-full"></span>
                                 {/* The 4-cluster astroid sparkles mathematically positioned */}
                                 <svg className="absolute top-[0.02em] left-1/2 -translate-x-1/2 w-[0.7em] h-[0.7em] text-white" viewBox="0 0 100 100" fill="currentColor">
                                     {/* Top biggest star */}
