@@ -531,6 +531,10 @@ button {
     padding: 0 1rem;
   }
 
+  .global-header {
+    position: relative !important;
+  }
+
   /* Header Top */
   .header-top .container {
     flex-direction: column !important;
