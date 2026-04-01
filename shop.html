@@ -21,7 +21,17 @@
 
         @media (max-width: 900px) {
             .shop-container {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .sidebar {
+                order: 2;
+                margin-top: 2rem;
+            }
+
+            .main-shop-content {
+                order: 1;
             }
         }
 
@@ -266,7 +276,7 @@
             </aside>
 
             <!-- Main Shop Content -->
-            <div class="animate-on-scroll" style="animation-delay:0.1s;">
+            <div class="main-shop-content animate-on-scroll" style="animation-delay:0.1s;">
 
                 <!-- Deals Banner -->
                 <div class="featured-banner">
