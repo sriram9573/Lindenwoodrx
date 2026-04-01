@@ -28,7 +28,7 @@ export default function Header() {
             <div className="py-4">
                 <div className="w-full max-w-[1280px] mx-auto px-4 flex flex-wrap md:flex-row justify-between items-center">
                     <Link href="/" className="flex items-center gap-2 md:gap-4 text-white hover:scale-[1.02] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] transition-transform duration-150">
-                        <div className="logo-mark">
+                        <div className="font-heading text-[2.75rem] md:text-[4rem] font-extrabold tracking-tight leading-none">
                             LiRx
                         </div>
                         <div className="font-sans text-sm md:text-base font-semibold leading-[1.2] border-l md:border-l-[3px] md:border-white/40 pl-3 md:pl-5 text-white/90">
