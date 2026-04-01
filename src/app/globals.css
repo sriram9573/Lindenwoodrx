@@ -101,17 +101,18 @@ body {
 
 .logo-mark {
   font-family: var(--font-heading);
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: -1px;
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: -1.5px;
   display: flex;
   align-items: center;
   position: relative;
+  line-height: 1;
 }
 
 @media (min-width: 768px) {
   .logo-mark {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
   }
 }
 
@@ -123,10 +124,10 @@ body {
 .sparkle-i::before {
   content: '✦';
   position: absolute;
-  top: -16px;
+  top: -24px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   color: white;
   animation: sparkle 2s infinite alternate;
 }
@@ -134,9 +135,9 @@ body {
 .sparkle-i::after {
   content: '✦';
   position: absolute;
-  top: -26px;
+  top: -38px;
   left: 30%;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
   animation: sparkle 2s infinite alternate-reverse;
 }
