@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #2ba694;
-  --color-primary-light: #36cca9;
-  --color-primary-dark: #1f8576;
-  --color-brand-glow: #8ee8d1;
+  --color-primary: #46917e;
+  --color-primary-light: #5aa894;
+  --color-primary-dark: #327a67;
+  --color-brand-glow: #78c7b3;
 
   --color-background: #f7fcfb;
   --color-surface: #ffffff;
