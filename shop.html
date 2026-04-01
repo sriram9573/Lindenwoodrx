@@ -148,6 +148,7 @@
             font-size: 1rem;
             display: -webkit-box;
             -webkit-line-clamp: 2;
+            line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             height: 2.8rem;
@@ -172,6 +173,23 @@
             width: 100%;
             padding: 0.5rem;
             font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .featured-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .featured-banner i {
+                margin: 0 auto !important;
+            }
+
+            .banner-content h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>

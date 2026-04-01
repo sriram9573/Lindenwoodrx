@@ -111,6 +111,42 @@
             color: var(--color-primary-light);
             margin-bottom: 0.5rem;
         }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem !important;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-event,
+            .timeline-event:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .timeline-box {
+                width: 90%;
+            }
+
+            .timeline-event:nth-child(odd) .timeline-box::before,
+            .timeline-event:nth-child(even) .timeline-box::before {
+                top: 20px;
+                left: -11%;
+                right: auto;
+                transform: none;
+            }
+
+            .timeline-event>div:empty {
+                display: none;
+            }
+
+            .text-content h2 {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 
