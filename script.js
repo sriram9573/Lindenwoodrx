@@ -76,4 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
       sidebar.classList.toggle('active');
     });
   }
+
+  // Dynamic Price Slider
+  const priceSlider = document.getElementById('price-slider');
+  const priceDisplay = document.getElementById('price-display');
+
+  if (priceSlider && priceDisplay) {
+    priceSlider.addEventListener('input', (e) => {
+      priceDisplay.textContent = `$${e.target.value}`;
+    });
+  }
 });

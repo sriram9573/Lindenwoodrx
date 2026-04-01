@@ -277,8 +277,13 @@
                 </div>
 
                 <div class="filter-section">
-                    <h3>Price Range</h3>
-                    <input type="range" min="0" max="100" value="100" class="custom-range">
+                    <h3 style="display:flex; justify-content:space-between; align-items:center;">
+                        Price Range
+                        <span id="price-display"
+                            style="color:var(--color-primary); font-size:1.1rem; font-weight:bold;">$100</span>
+                    </h3>
+                    <input type="range" id="price-slider" min="0" max="100" value="100"
+                        style="width:100%; margin:1rem 0 0.5rem 0;">
                     <div
                         style="display:flex; justify-content:space-between; font-size:0.875rem; color:var(--color-text-light);">
                         <span>$0</span>
