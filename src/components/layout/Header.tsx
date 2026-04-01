@@ -7,7 +7,7 @@ export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     return (
-        <header className="bg-[#2ba694] text-white sticky md:relative top-0 z-[100] shadow-md">
+        <header className="bg-[#2ba694] text-white relative top-0 z-[100] shadow-md">
             <div className="bg-[#3b4241] py-2 text-sm">
                 <div className="w-full max-w-[1280px] mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0 text-center">
                     <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-6 opacity-90">
