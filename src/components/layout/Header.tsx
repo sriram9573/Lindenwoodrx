@@ -28,14 +28,8 @@ export default function Header() {
             <div className="py-4">
                 <div className="w-full max-w-[1280px] mx-auto px-4 flex flex-wrap md:flex-row justify-between items-center">
                     <Link href="/" className="flex items-center gap-2 md:gap-4 text-white hover:scale-[1.02] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] transition-transform duration-150">
-                        <div className="relative w-[120px] md:w-[150px] h-[50px] md:h-[65px] flex-shrink-0">
-                            <Image
-                                src="/images/logo.png"
-                                alt="LiRx Logo"
-                                fill
-                                className="object-contain object-left"
-                                priority
-                            />
+                        <div className="font-heading text-4xl md:text-5xl font-semibold tracking-tight relative flex items-center">
+                            L<span className="relative inline-block animate-sparkle-1 before:content-['✦'] before:absolute before:-top-3 before:left-1/2 before:-translate-x-1/2 before:text-2xl before:text-white after:content-['✦'] after:absolute after:-top-5 after:left-[30%] after:text-sm after:text-white/80 animate-sparkle-2">i</span>Rx
                         </div>
                         <div className="font-sans text-sm md:text-base font-semibold leading-[1.2] border-l md:border-l-[3px] md:border-white/40 pl-3 md:pl-5 text-white/90">
                             Lindenwood<br className="hidden md:block" />Rx Center, Inc.
