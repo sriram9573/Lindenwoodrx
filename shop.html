@@ -20,18 +20,33 @@
         }
 
         @media (max-width: 900px) {
+            .mobile-filter-toggle {
+                display: flex !important;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
             .shop-container {
                 display: flex;
                 flex-direction: column;
             }
 
             .sidebar {
-                order: 2;
-                margin-top: 2rem;
+                order: 1;
+                margin-top: 0;
+                margin-bottom: 2rem;
+                display: none;
+                /* Hidden by default until toggled */
+            }
+
+            .sidebar.active {
+                display: block;
+                animation: fadeIn 0.3s ease-in-out;
             }
 
             .main-shop-content {
-                order: 1;
+                order: 2;
             }
         }
 
@@ -238,6 +253,12 @@
     </header>
 
     <main class="container">
+
+        <!-- Mobile Filter Toggle Button (hidden on desktop) -->
+        <button class="mobile-filter-toggle btn btn-outline" style="width: 100%; margin-bottom: 2rem; display: none;">
+            <i class="ph ph-sliders"></i> Filter Categories
+        </button>
+
         <div class="shop-container">
 
             <!-- Sidebar Filters -->

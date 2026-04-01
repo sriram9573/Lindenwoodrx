@@ -67,4 +67,13 @@ document.addEventListener('DOMContentLoaded', () => {
       mainNav.classList.toggle('nav-open');
     });
   }
+
+  // Mobile shop filter toggle logic
+  const filterToggle = document.querySelector('.mobile-filter-toggle');
+  const sidebar = document.querySelector('.sidebar');
+  if (filterToggle && sidebar) {
+    filterToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('active');
+    });
+  }
 });
