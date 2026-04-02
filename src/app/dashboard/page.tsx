@@ -141,7 +141,7 @@ export default function Dashboard() {
                                 <div className="absolute -left-[32px] top-1 w-4 h-4 rounded-full bg-[var(--color-primary)] border-[3px] border-[var(--color-primary-light)] shadow-[0_0_0_4px_rgba(27,194,170,0.2)] z-10 box-content"></div>
                                 <div className="pl-4">
                                     <h4 className="text-lg font-bold text-[var(--color-text-main)] mb-1 font-heading leading-none">Pharmacist Review</h4>
-                                    <p className="text-sm text-[var(--color-text-light)] leading-relaxed">Dr. Sarah Jenkins is reviewing your prescription for safety.</p>
+                                    <p className="text-sm text-[var(--color-text-light)] leading-relaxed">Dr. Jenny is reviewing your prescription for safety.</p>
                                     <div className="text-xs font-semibold text-[var(--color-text-light)] mt-2">Today, 9:45 AM</div>
                                 </div>
                             </div>
