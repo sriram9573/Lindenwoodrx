@@ -23,7 +23,7 @@ export default function Header() {
                     </div>
                     <div className="flex flex-wrap justify-center md:justify-start gap-3 md:gap-6 items-center">
                         <Link href="/dashboard" className="text-white flex items-center gap-2 hover:text-[var(--color-brand-glow)] transition-colors">
-                            <i className="ph ph-user-circle"></i> Welcome, David
+                            <i className="ph ph-user-circle"></i> Welcome, Sri Ram
                         </Link>
                         <Link href="/cart" className="text-white flex items-center gap-2 hover:text-[var(--color-brand-glow)] transition-colors">
                             <i className="ph ph-shopping-cart"></i> Cart: 3 items
