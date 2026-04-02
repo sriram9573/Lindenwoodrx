@@ -14,7 +14,7 @@ export default function Dashboard() {
                         <div className="w-[80px] h-[80px] lg:w-[120px] lg:h-[120px] rounded-full bg-[var(--color-primary-light)] text-white text-[2rem] lg:text-[3rem] flex items-center justify-center mx-auto mb-6 shadow-md">
                             <i className="ph ph-user"></i>
                         </div>
-                        <h3 className="text-2xl font-bold font-heading text-[var(--color-primary-dark)]">Sri Ram Smith</h3>
+                        <h3 className="text-2xl font-bold font-heading text-[var(--color-primary-dark)]">Sri Ram</h3>
                         <p className="text-[var(--color-text-light)] text-sm mt-1">Patient ID: 9482749</p>
 
                         <nav className="flex flex-col gap-2 text-left mt-8">
