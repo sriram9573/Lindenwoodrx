@@ -1,33 +1,45 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
+// Replace with your actual Google Apps Script Web App URL after deployment
+const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
+
 export default function Home() {
   const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
     const formData = new FormData(e.currentTarget);
-    const fullName = formData.get('fullName');
-    const pharmacyPhone = formData.get('pharmacyPhone');
+    const data = {
+      fullName: formData.get('fullName'),
+      phone: formData.get('pharmacyPhone'),
+      // Quick form doesn't have these, but we'll send defaults to match script column expectation
+      dob: 'N/A',
+      rxNumber: 'Quick Transfer',
+      oldPharmacy: 'See Phone',
+      pharmacyPhone: formData.get('pharmacyPhone')
+    };
 
     try {
-      const response = await fetch('/api/transfer', {
+      await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ fullName, pharmacyPhone })
+        body: JSON.stringify(data)
       });
-      const data = await response.json();
-      if (data.success) {
-        alert(data.message);
-        router.push('/dashboard');
-      } else {
-        alert('Error: ' + data.message);
-      }
+
+      alert('Transfer Request Submitted Successfully!');
+      router.push('/dashboard');
     } catch (error) {
       alert('Failed to submit transfer request.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
   return (
