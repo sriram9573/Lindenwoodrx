@@ -27,11 +27,15 @@ export default function Home() {
     };
 
     try {
+      const params = new URLSearchParams();
+      Object.entries(data).forEach(([key, value]) => {
+        params.append(key, value as string);
+      });
+
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify(data)
+        body: params
       });
 
       alert('Transfer Request Submitted Successfully!');

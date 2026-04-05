@@ -29,12 +29,16 @@ export default function Prescriptions() {
         };
 
         try {
-            // Send to Google Sheets via Apps Script
+            // High compatibility submission using URLSearchParams
+            const params = new URLSearchParams();
+            Object.entries(data).forEach(([key, value]) => {
+                params.append(key, value as string);
+            });
+
             await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'text/plain' },
-                body: JSON.stringify(data)
+                body: params
             });
 
             // Note: with 'no-cors', we can't read the response body, but we assume success if no error is thrown
