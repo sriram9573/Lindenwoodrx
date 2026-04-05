@@ -14,6 +14,7 @@ export default function Prescriptions() {
 
     const handleTransferSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        const form = e.currentTarget; // Capture form reference immediately before async gap
         setIsSubmitting(true);
         setSubmitStatus(null);
 
@@ -29,6 +30,7 @@ export default function Prescriptions() {
         };
 
         try {
+            console.log('[Frontend] Sending transfer data:', data);
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -36,16 +38,19 @@ export default function Prescriptions() {
             });
 
             const result = await response.json();
+            console.log('[Frontend] API Result:', result);
 
-            if (result.success) {
+            if (result.success === true) {
                 setSubmitStatus({ type: 'success', message: 'Transfer Request Submitted Successfully! We will contact you shortly.' });
-                e.currentTarget.reset();
+                form.reset(); // Use captured reference
+                // Redirect after a short delay so the user sees the success message
                 setTimeout(() => router.push('/dashboard'), 3000);
             } else {
-                throw new Error(result.message);
+                throw new Error(result.message || 'Server reported failure');
             }
 
         } catch (error) {
+            console.error('[Frontend] Submission Error:', error);
             setSubmitStatus({ type: 'error', message: 'Failed to submit transfer request. Please try again or call us directly.' });
         } finally {
             setIsSubmitting(false);
@@ -139,7 +144,7 @@ export default function Prescriptions() {
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm font-semibold text-[var(--color-text-main)]">Medication Names (Optional)</label>
-                                    <textarea placeholder="List medications to transfer, or just type 'All'" rows={3} className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)] resize-y"></textarea>
+                                    <textarea name="medications" placeholder="List medications to transfer, or just type 'All'" rows={3} className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)] resize-y"></textarea>
                                 </div>
                             </div>
                         </div>

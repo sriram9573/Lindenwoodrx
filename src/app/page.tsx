@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-// Replace with your actual Google Apps Script Web App URL after deployment
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzl1SRKI-b4kNGf1TNavklTG0JEuxXC-Ck30WQUdnuQSH82qCSMEc8etsDpEhKVxXFlbA/exec';
 
 export default function Home() {
   const router = useRouter();
