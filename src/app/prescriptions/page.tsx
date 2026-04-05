@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 // Replace with your actual Google Apps Script Web App URL after deployment
-const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_SCRIPT_WEB_APP_URL';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzl1SRKI-b4kNGf1TNavklTG0JEuxXC-Ck30WQUdnuQSH82qCSMEc8etsDpEhKVxXFlbA/exec';
 
 export default function Prescriptions() {
     const router = useRouter();
@@ -153,8 +153,8 @@ export default function Prescriptions() {
                             type="submit"
                             disabled={isSubmitting}
                             className={`w-full flex items-center justify-center px-6 py-4 font-bold rounded-full text-white shadow-md transition-all duration-300 mt-4 text-lg ${isSubmitting
-                                    ? 'bg-[var(--color-text-light)] cursor-not-allowed'
-                                    : 'bg-[var(--color-primary-light)] hover:bg-[var(--color-primary)] hover:shadow-[0_4px_15px_rgba(27,194,170,0.4)] hover:-translate-y-0.5'
+                                ? 'bg-[var(--color-text-light)] cursor-not-allowed'
+                                : 'bg-[var(--color-primary-light)] hover:bg-[var(--color-primary)] hover:shadow-[0_4px_15px_rgba(27,194,170,0.4)] hover:-translate-y-0.5'
                                 }`}
                         >
                             {isSubmitting ? (
