@@ -6,10 +6,28 @@ import { useRouter } from 'next/navigation';
 export default function Prescriptions() {
     const router = useRouter();
 
-    const handleTransfer = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        alert('Transfer Request Submitted Succesfully! We will contact you shortly.');
-        router.push('/dashboard');
+        const formData = new FormData(e.currentTarget);
+        const fullName = `${formData.get('firstName')} ${formData.get('lastName')}`;
+        const pharmacyPhone = formData.get('pharmacyPhone');
+
+        try {
+            const response = await fetch('/api/transfer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fullName, pharmacyPhone })
+            });
+            const data = await response.json();
+            if (data.success) {
+                alert(data.message);
+                router.push('/dashboard');
+            } else {
+                alert('Error: ' + data.message);
+            }
+        } catch (error) {
+            alert('Failed to submit transfer request.');
+        }
     };
 
     return (
@@ -56,28 +74,28 @@ export default function Prescriptions() {
                 {/* Form Section */}
                 <div className="lg:w-[65%] bg-white p-8 rounded-2xl shadow-lg border-t-4 border-[var(--color-primary)] w-full">
                     <h2 className="text-2xl font-bold font-heading text-[var(--color-primary-dark)] mb-8 text-center">Start Your Transfer</h2>
-                    <form onSubmit={handleTransfer} className="flex flex-col gap-6">
+                    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
                         <div>
                             <h4 className="text-sm font-bold text-[var(--color-text-light)] uppercase tracking-wider mb-4 border-b border-[var(--color-border)] pb-2 pt-2">Patient Information</h4>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm font-semibold text-[var(--color-text-main)]">First Name</label>
-                                    <input type="text" required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
+                                    <input name="firstName" type="text" required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm font-semibold text-[var(--color-text-main)]">Last Name</label>
-                                    <input type="text" required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
+                                    <input name="lastName" type="text" required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm font-semibold text-[var(--color-text-main)]">Date of Birth</label>
-                                    <input type="date" required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
+                                    <input name="dob" type="date" required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm font-semibold text-[var(--color-text-main)]">Phone Number</label>
-                                    <input type="tel" placeholder="(555) 123-4567" required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
+                                    <input name="phone" type="tel" placeholder="(555) 123-4567" required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
                                 </div>
                             </div>
                         </div>
@@ -87,11 +105,11 @@ export default function Prescriptions() {
                             <div className="flex flex-col gap-4">
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm font-semibold text-[var(--color-text-main)]">Pharmacy Name</label>
-                                    <input type="text" placeholder="e.g. CVS, Walgreens..." required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
+                                    <input name="oldPharmacy" type="text" placeholder="e.g. CVS, Walgreens..." required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm font-semibold text-[var(--color-text-main)]">Pharmacy Phone Number</label>
-                                    <input type="tel" placeholder="(555) 987-6543" required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
+                                    <input name="pharmacyPhone" type="tel" placeholder="(555) 987-6543" required className="px-4 py-3 border border-[var(--color-border)] rounded-lg text-base focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 transition-all bg-[var(--color-surface)]" />
                                 </div>
                                 <div className="flex flex-col gap-2">
                                     <label className="text-sm font-semibold text-[var(--color-text-main)]">Medication Names (Optional)</label>

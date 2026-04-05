@@ -4,6 +4,24 @@ import React from 'react';
 import Link from 'next/link';
 
 export default function Dashboard() {
+    const handleRefill = async (rxNumber: string, drugName: string) => {
+        try {
+            const response = await fetch('/api/refill', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ rxNumber, drugName })
+            });
+            const data = await response.json();
+            if (data.success) {
+                alert(data.message);
+            } else {
+                alert('Error: ' + data.message);
+            }
+        } catch (error) {
+            alert('Failed to connect to the pharmacy system.');
+        }
+    };
+
     return (
         <div className="w-full max-w-[1280px] mx-auto px-4 z-10 w-full animate-fade-in relative">
             <div className="grid grid-cols-1 lg:grid-cols-[350px_1fr] gap-8 py-6 lg:py-12 min-h-[calc(100vh-400px)]">
@@ -68,12 +86,12 @@ export default function Dashboard() {
                                             <span className="text-xs text-[var(--color-text-light)]">Take 1 tablet daily</span>
                                         </td>
                                         <td className="py-4 px-4 border-b border-[var(--color-border)] font-medium">RX-849204</td>
-                                        <td className="py-4 px-4 border-b border-[var(--color-border)] font-semibold text-lg">3</td>
+                                        <td className="py-4 px-4 border-b border(--color-border)] font-semibold text-lg">3</td>
                                         <td className="py-4 px-4 border-b border-[var(--color-border)] whitespace-nowrap">
                                             <span className="inline-block px-3 py-1 bg-[#e6ffed] text-[var(--color-success)] rounded-full text-xs font-bold font-heading">Active</span>
                                         </td>
                                         <td className="py-4 px-4 border-b border-[var(--color-border)]">
-                                            <button className="inline-block px-4 py-2 bg-[var(--color-primary-light)] text-white rounded-full font-semibold hover:bg-[var(--color-primary)] hover:-translate-y-[1px] transition-all shadow-sm" onClick={() => alert('Refill Request Sent!')}>
+                                            <button className="inline-block px-4 py-2 bg-[var(--color-primary-light)] text-white rounded-full font-semibold hover:bg-[var(--color-primary)] hover:-translate-y-[1px] transition-all shadow-sm" onClick={() => handleRefill('RX-849204', 'Lisinopril 10mg')}>
                                                 Refill Now
                                             </button>
                                         </td>
@@ -89,7 +107,7 @@ export default function Dashboard() {
                                             <span className="inline-block px-3 py-1 bg-[#fff4e6] text-[var(--color-warning)] rounded-full text-xs font-bold font-heading">Low Refills</span>
                                         </td>
                                         <td className="py-4 px-4 border-b border-[var(--color-border)]">
-                                            <button className="inline-block px-4 py-2 bg-[var(--color-primary-light)] text-white rounded-full font-semibold hover:bg-[var(--color-primary)] hover:-translate-y-[1px] transition-all shadow-sm" onClick={() => alert('Refill Request Sent!')}>
+                                            <button className="inline-block px-4 py-2 bg-[var(--color-primary-light)] text-white rounded-full font-semibold hover:bg-[var(--color-primary)] hover:-translate-y-[1px] transition-all shadow-sm" onClick={() => handleRefill('RX-849205', 'Atorvastatin 20mg')}>
                                                 Refill Now
                                             </button>
                                         </td>

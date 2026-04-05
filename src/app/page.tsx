@@ -2,8 +2,34 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const fullName = formData.get('fullName');
+    const pharmacyPhone = formData.get('pharmacyPhone');
+
+    try {
+      const response = await fetch('/api/transfer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fullName, pharmacyPhone })
+      });
+      const data = await response.json();
+      if (data.success) {
+        alert(data.message);
+        router.push('/dashboard');
+      } else {
+        alert('Error: ' + data.message);
+      }
+    } catch (error) {
+      alert('Failed to submit transfer request.');
+    }
+  };
   return (
     <>
       {/* Hero Section */}
@@ -94,14 +120,14 @@ export default function Home() {
             </ul>
           </div>
           <div className="flex-[0.8] w-full bg-[var(--color-background)] p-8 md:p-10 rounded-[1.5rem] shadow-inner border border-white">
-            <form onSubmit={(e) => { e.preventDefault(); alert('Transfer Request Submitted!'); }} className="flex flex-col gap-6">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="flex flex-col gap-2 text-left">
                 <label className="text-sm font-semibold text-[var(--color-text-main)]">Full Name</label>
-                <input type="text" className="px-4 py-3.5 border border-[var(--color-border)] rounded-xl font-sans text-base transition-all duration-150 focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 bg-white" placeholder="John Doe" required />
+                <input name="fullName" type="text" className="px-4 py-3.5 border border-[var(--color-border)] rounded-xl font-sans text-base transition-all duration-150 focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 bg-white" placeholder="John Doe" required />
               </div>
               <div className="flex flex-col gap-2 text-left">
                 <label className="text-sm font-semibold text-[var(--color-text-main)]">Current Pharmacy Phone #</label>
-                <input type="tel" className="px-4 py-3.5 border border-[var(--color-border)] rounded-xl font-sans text-base transition-all duration-150 focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 bg-white" placeholder="(555) 123-4567" required />
+                <input name="pharmacyPhone" type="tel" className="px-4 py-3.5 border border-[var(--color-border)] rounded-xl font-sans text-base transition-all duration-150 focus:outline-none focus:border-[var(--color-primary-light)] focus:ring-[3px] focus:ring-[var(--color-primary-light)]/20 bg-white" placeholder="(555) 123-4567" required />
               </div>
               <button type="submit" className="w-full flex items-center justify-center px-6 py-4 font-bold rounded-full text-white bg-[var(--color-primary-light)] hover:bg-[var(--color-primary)] shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 mt-2 text-lg">
                 Start Transfer Now
