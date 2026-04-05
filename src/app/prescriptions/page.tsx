@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-// Replace with your actual Google Apps Script Web App URL after deployment
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzl1SRKI-b4kNGf1TNavklTG0JEuxXC-Ck30WQUdnuQSH82qCSMEc8etsDpEhKVxXFlbA/exec';
+// Calls our local Next.js API proxy to handle Google Sheets logging
+const API_URL = '/api/transfer';
 
 export default function Prescriptions() {
     const router = useRouter();
@@ -29,24 +29,21 @@ export default function Prescriptions() {
         };
 
         try {
-            // High compatibility submission using URLSearchParams
-            const params = new URLSearchParams();
-            Object.entries(data).forEach(([key, value]) => {
-                params.append(key, value as string);
-            });
-
-            await fetch(GOOGLE_SCRIPT_URL, {
+            const response = await fetch(API_URL, {
                 method: 'POST',
-                mode: 'no-cors',
-                body: params
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
             });
 
-            // Note: with 'no-cors', we can't read the response body, but we assume success if no error is thrown
-            setSubmitStatus({ type: 'success', message: 'Transfer Request Submitted Successfully! We will contact you shortly.' });
-            e.currentTarget.reset();
+            const result = await response.json();
 
-            // Optional: redirect after 3 seconds
-            setTimeout(() => router.push('/dashboard'), 3000);
+            if (result.success) {
+                setSubmitStatus({ type: 'success', message: 'Transfer Request Submitted Successfully! We will contact you shortly.' });
+                e.currentTarget.reset();
+                setTimeout(() => router.push('/dashboard'), 3000);
+            } else {
+                throw new Error(result.message);
+            }
 
         } catch (error) {
             setSubmitStatus({ type: 'error', message: 'Failed to submit transfer request. Please try again or call us directly.' });

@@ -1,21 +1,30 @@
 import { NextResponse } from 'next/server';
 
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzl1SRKI-b4kNGf1TNavklTG0JEuxXC-Ck30WQUdnuQSH82qCSMEc8etsDpEhKVxXFlbA/exec';
+
 export async function POST(request: Request) {
     try {
         const body = await request.json();
-        const { fullName, pharmacyPhone } = body;
 
-        console.log(`[API] Transfer request received from: ${fullName}, Old Pharmacy: ${pharmacyPhone}`);
+        // Forward the request to Google Apps Script from the server (bypasses CORS)
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
 
-        // Simulate processing
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        const data = await response.json();
 
         return NextResponse.json({
             success: true,
-            message: `Thank you ${fullName}. We have received your transfer request and will contact your current pharmacy shortly.`,
-            requestId: 'TRF-' + Math.floor(Math.random() * 10000).toString()
-        }, { status: 201 });
+            message: 'Transfer request successfully sent to Lindenwood Rx.',
+            googleResponse: data
+        });
     } catch (error) {
-        return NextResponse.json({ success: false, message: 'Invalid request data' }, { status: 400 });
+        console.error('[API Proxy Error]', error);
+        return NextResponse.json({
+            success: false,
+            message: 'Failed to process transfer request.'
+        }, { status: 500 });
     }
 }

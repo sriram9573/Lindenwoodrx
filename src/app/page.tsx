@@ -27,19 +27,19 @@ export default function Home() {
     };
 
     try {
-      const params = new URLSearchParams();
-      Object.entries(data).forEach(([key, value]) => {
-        params.append(key, value as string);
-      });
-
-      await fetch(GOOGLE_SCRIPT_URL, {
+      const response = await fetch('/api/transfer', {
         method: 'POST',
-        mode: 'no-cors',
-        body: params
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
       });
 
-      alert('Transfer Request Submitted Successfully!');
-      router.push('/dashboard');
+      const result = await response.json();
+      if (result.success) {
+        alert('Transfer Request Submitted Successfully!');
+        router.push('/dashboard');
+      } else {
+        alert('Error: ' + result.message);
+      }
     } catch (error) {
       alert('Failed to submit transfer request.');
     } finally {
