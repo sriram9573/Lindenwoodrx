@@ -30,10 +30,10 @@ export default function Prescriptions() {
 
         try {
             // Send to Google Sheets via Apps Script
-            const response = await fetch(GOOGLE_SCRIPT_URL, {
+            await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors', // Apps Script requires no-cors for simple redirect-based POSTs
-                headers: { 'Content-Type': 'application/json' },
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'text/plain' },
                 body: JSON.stringify(data)
             });
 
